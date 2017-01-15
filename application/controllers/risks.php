@@ -8,11 +8,11 @@ class Risks extends CI_Controller {
                 $this->load->helper('url_helper');
         }
 
-        public function index()
+        public function index($page = 1)
         {
-                $data['risks'] = $this->FMEA_model->get_risks();
+                $data['risks'] = $this->FMEA_model->get_risks($slug = FALSE, $page);
 		$data['title'] = 'Risks list';
-
+                $data['page'] = $page;
                 $this->load->view('templates/header', $data);
 		$this->load->view('risks/index', $data);
 		$this->load->view('templates/footer');
@@ -91,7 +91,7 @@ class Risks extends CI_Controller {
                         $this->FMEA_model->set_risks(TRUE);
                         $data['record'] = $i;
                     }
-                  //  $this->load->view('risks/success_autogenerate',$data);
+                    $this->load->view('risks/success_autogenerate',$data);
                 }
         }
 }

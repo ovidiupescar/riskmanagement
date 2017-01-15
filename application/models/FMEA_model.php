@@ -6,15 +6,18 @@ class FMEA_model extends CI_Model {
                 $this->load->database();
         }
 	
-        public function get_risks($slug = FALSE)
+        public function get_risks($slug = FALSE, $page = 1)
 	{
+                $risksppage = 50;
+                
 		if ($slug === FALSE)
 		{
-                        $query = $this->db->get('news');
+                        $offset = ($page-1) * $risksppage;
+                        $query = $this->db->get('fmea', $risksppage, $offset);
 			return $query->result_array();
 		}
 
-		$query = $this->db->get_where('news', array('slug' => $slug));
+		$query = $this->db->get_where('fmea', array('id' => $slug));
 		return $query->row_array();
 	}
         
