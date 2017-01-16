@@ -9,14 +9,21 @@
  */
 
 /**
- * Description of MY_model
+ * Description of OP_model
  *
  * @author Ovidiu
  */
-class MY_model extends CI_Model {
+class OP_model extends CI_Model {
    
     const DB_TABLE = 'abstract';
     const DB_TABLE_PK = 'abstract';
+    
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        parent::__construct();
+    }
     
     /**
      * Create record

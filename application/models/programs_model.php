@@ -13,7 +13,7 @@
  * Model of Programs Table
  * @author Ovidiu Pescar
  */
-class Programs_model extends MY_model {
+class Programs_model extends OP_model {
     const DB_TABLE = 'programs';
     const DB_TABLE_PK = 'id';
     /**
